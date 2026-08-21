@@ -122,6 +122,8 @@ import {
   rules,
 } from "./mockData";
 
+const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 const { Header, Sider, Content } = Layout;
 type Portal = "login" | "app" | "branch" | "manage";
 type RoleKey = "business" | "branch" | "admin";
@@ -606,7 +608,7 @@ function SectionTitle({
 function BankBrand({ compact = false }: { compact?: boolean }) {
   return (
     <div className={"brand " + (compact ? "compact" : "")}>
-      <img className="icbc-logo" src="/icbc-logo.png" alt="中国工商银行 ICBC" />
+      <img className="icbc-logo" src={`${assetPrefix}/icbc-logo.png`} alt="中国工商银行 ICBC" />
       <i></i>
       <strong>外部数据产品管理平台</strong>
     </div>
@@ -626,7 +628,7 @@ function Login({ onLogin, onDemo }: { onLogin: (r: RoleKey) => void; onDemo: () 
       <main className="login-main">
         <div className="architecture-panel">
           <div className="headquarters-photo">
-            <img src="/icbc-headquarters.jpg" alt="中国工商银行总行办公楼" />
+            <img src={`${assetPrefix}/icbc-headquarters.jpg`} alt="中国工商银行总行办公楼" />
             <span>中国工商银行总行办公楼</span>
           </div>
           <div className="bank-motto">
